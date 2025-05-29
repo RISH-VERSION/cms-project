@@ -4,7 +4,7 @@ import AppRouter from './routes/Router';
 function App() {
   return (
     <BrowserRouter>
-      <AppRouter/>
+      <AppRouter />
     </BrowserRouter>
   );
 }
