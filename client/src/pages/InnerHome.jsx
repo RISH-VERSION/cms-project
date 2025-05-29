@@ -1,45 +1,45 @@
-
-
+import { useNavigate } from 'react-router-dom';
 function InnerHome() {
-    return (
-        <>
-          <div
-            className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-green-100 flex flex-col justify-between animate-fadeIn"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 80% 20%, rgba(99,102,241,0.15) 0, transparent 60%), radial-gradient(circle at 20% 80%, rgba(34,197,94,0.12) 0, transparent 60%)",
-            }}
-          >
-            {/* Welcome Section */}
-            <div className="flex-grow flex flex-col items-center justify-center p-8 text-center">
-              <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 animate-slideDown">
-                Welcome to <span className="text-indigo-600">Zenergy</span>
-              </h1>
-              <p className="text-lg text-gray-600 max-w-xl mb-8 animate-fadeInDelay">
-                Elevate your fitness journey with smart workouts, clean nutrition, and total body-mind balance.
-              </p>
+  const navigate = useNavigate();
+  return (
+    <>
+      <div
+        className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-green-100 flex flex-col justify-between animate-fadeIn"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 80% 20%, rgba(99,102,241,0.15) 0, transparent 60%), radial-gradient(circle at 20% 80%, rgba(34,197,94,0.12) 0, transparent 60%)",
+        }}
+      >
+        {/* Welcome Section */}
+        <div className="flex-grow flex flex-col items-center justify-center p-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 animate-slideDown">
+            Welcome to <span className="text-indigo-600">Zenergy</span>
+          </h1>
+          <p className="text-lg text-gray-600 max-w-xl mb-8 animate-fadeInDelay">
+            Elevate your fitness journey with smart workouts, clean nutrition, and total body-mind balance.
+          </p>
 
-              {/* Feature Buttons */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <button className="w-52 bg-indigo-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-indigo-700 transition transform hover:scale-105 duration-200 animate-popIn">
-                  Exercise Plans
-                </button>
-                <button className="w-52 bg-green-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-600 transition transform hover:scale-105 duration-200 animate-popIn delay-100">
-                  Diet Plans
-                </button>
-                <button className="w-52 bg-blue-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-blue-600 transition transform hover:scale-105 duration-200 animate-popIn delay-200">
-                  Tracker
-                </button>
-              </div>
-            </div>
-
-            {/* Footer */}
-            <footer className="text-center py-4 text-gray-500 text-sm animate-fadeInDelay">
-              © {new Date().getFullYear()} Zenergy. All rights reserved.
-            </footer>
+          {/* Feature Buttons */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <button className="w-52 bg-indigo-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-indigo-700 transition transform hover:scale-105 duration-200 animate-popIn" onClick={() => navigate("/Exercise")}>
+              Exercise Plans
+            </button>
+            <button className="w-52 bg-green-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-600 transition transform hover:scale-105 duration-200 animate-popIn delay-100">
+              Diet Plans
+            </button>
+            <button className="w-52 bg-blue-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-blue-600 transition transform hover:scale-105 duration-200 animate-popIn delay-200">
+              Tracker
+            </button>
           </div>
-          <style>
-            {`
+        </div>
+
+        {/* Footer */}
+        <footer className="text-center py-4 text-gray-500 text-sm animate-fadeInDelay">
+          © {new Date().getFullYear()} Zenergy. All rights reserved.
+        </footer>
+      </div>
+      <style>
+        {`
               @keyframes fadeIn {
                 from { opacity: 0 }
                 to { opacity: 1 }
@@ -72,9 +72,9 @@ function InnerHome() {
                 animation-delay: 0.2s;
               }
             `}
-          </style>
-        </>
-    );
+      </style>
+    </>
+  );
 }
 
 export default InnerHome;
