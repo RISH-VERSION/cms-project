@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom';
 
 function Signin() {
   return (
+    <>
+    <nav>
+      <div className="flex justify-end items-center h-16 px-6 bg-white border-b border-gray-200 shadow-sm">
+        <Link
+          to="/"
+          className="text-blue-600 font-semibold hover:underline px-4 py-2 rounded transition-colors"
+        >
+          Home
+        </Link>
+      </div>
+    </nav>
     <div className="mx-auto mt-20 max-w-sm p-6 bg-white rounded-lg shadow-md border border-gray-300">
       <div className="text-center mb-6 text-blue-600">
         <h1 className="text-2xl font-bold">Login</h1>
@@ -44,6 +55,7 @@ function Signin() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 

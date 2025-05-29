@@ -25,9 +25,11 @@ function Home(props) {
             <main className="container mx-auto px-4 py-8">
                 <div className="flex flex-col items-center justify-center">
                     <h1 className="text-4xl font-semibold text-center text-gray-800">Welcome to Our Website</h1>
+                    <a href="/Signin">
                     <button className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors duration-200">
                         Get Started
                     </button>
+                    </a>
                 </div>
             </main>
         </>
