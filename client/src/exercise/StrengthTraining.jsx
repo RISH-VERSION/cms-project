@@ -2,16 +2,21 @@
 function StrengthTraining(){
     return(
        <div className="bg-gray-50 min-h-screen">
-      {/* Header Section */}
       <header className="bg-indigo-600 text-white py-8 px-4 text-center">
         <h1 className="text-4xl font-bold">Strength Training</h1>
         <p className="text-lg mt-2">Unleash your strength and power with expert routines.</p>
         <p className="text-lg mt-2">Results happen over time, not overnight – stay committed</p>
-        
       </header>
 
       {/* Navigation Section */}
-      <nav className="flex justify-center gap-6 bg-gray-200 py-4">
+      <nav className="flex items-center justify-center gap-6 bg-gray-200 py-4 relative">
+        <button
+          onClick={() => window.location.href = "/exercise"}
+          className="absolute left-4 px-4 py-2 bg-white text-indigo-600 rounded shadow hover:bg-indigo-100 transition"
+          style={{ top: '50%', transform: 'translateY(-50%)' }}
+        >
+          &larr; Back to Exercises
+        </button>
         <a href="#benefits" className="text-indigo-600 hover:text-indigo-800 font-semibold">
           Benefits
         </a>
@@ -22,7 +27,6 @@ function StrengthTraining(){
           Tips
         </a>
       </nav>
-
     
       <section id="exercises" className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Popular Strength Training Exercises</h2>

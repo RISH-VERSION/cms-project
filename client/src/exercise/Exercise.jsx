@@ -36,7 +36,7 @@ function Exercise() {
         <p className="text-gray-700 mt-2">
           Build strength and endurance with structured Strength training routines.
         </p>
-        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" onClick={() => navigate('/StrengthTraining')}>
           Learn More
         </button>
       </div>
