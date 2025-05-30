@@ -105,8 +105,7 @@ function Signup() {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors" onClick={handleSignup}
-                        >
+                            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors" onClick={handleSignup}>
                             Sign Up
                         </button>
                     </form>
