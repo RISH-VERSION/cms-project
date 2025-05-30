@@ -1,31 +1,45 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 function InnerHome() {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/signin");
+    }
+  }, [user, navigate]);
+
+  const handleLogut = () => {
+    localStorage.removeItem("loggedInUser");
+    setUser(null);
+  };
+
   return (
     <>
       <nav>
-      <ul className="flex space-x-4 items-center p-4 bg-white shadow rounded-lg">
-        <li>
-          <button
-            className="text-indigo-600 font-semibold hover:underline"
-            onClick={() => navigate("/")}
-          >
-            Home
-          </button>
-        </li>
-        <li className="ml-auto">
-          <button
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
-            onClick={() => {
-              localStorage.removeItem("user");
-              navigate("/");
-            }}
-          >
-            Logout
-          </button>
-        </li>
-      </ul>
+        <ul className="flex space-x-4 items-center p-4 bg-white shadow rounded-lg">
+          <li>
+            <button
+              className="text-indigo-600 font-semibold hover:underline"
+              onClick={() => navigate("/")}
+            >
+              Home
+            </button>
+          </li>
+          <li className="ml-auto">
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+              onClick={handleLogut}
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
       </nav>
       <div
         className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-green-100 flex flex-col justify-between animate-fadeIn"
