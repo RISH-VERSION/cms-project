@@ -13,7 +13,7 @@ function Home(props) {
         <>
             <header className="bg-gray-800 text-white py-4">
                 <div className="container mx-auto flex justify-between items-center px-4">
-                    <h1 className="text-2xl font-bold">Logo</h1>
+                    <h1 className="text-2xl font-bold">Zenergy</h1>
                     <div className="flex space-x-6">
                         <button
                             className="text-white hover:text-gray-300 font-semibold"
