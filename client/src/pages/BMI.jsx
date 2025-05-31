@@ -1,6 +1,7 @@
-import React from 'react';
-
+import React, { use } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 function BMI(props) {
+    const navigate = useNavigate();
     const [gender, setGender] = React.useState('');
     const [weight, setWeight] = React.useState('');
     const [height, setHeight] = React.useState('');
@@ -52,15 +53,30 @@ function BMI(props) {
     };
 
     return (
+        <>
+        {/* Styled Navbar */}
+        <nav className="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-4 shadow flex items-center">
+            <button
+                onClick={() => navigate("/InnerHome")}
+                className="bg-white text-blue-600 font-semibold px-4 py-2 rounded shadow hover:bg-blue-100 transition"
+            >
+                &larr; Back
+            </button>
+            <h1 className="flex-1 text-center text-2xl md:text-3xl font-bold text-white tracking-wide">
+                Calculating Calories & Bmi
+            </h1>
+        </nav>
         <div className="min-h-screen flex items-center justify-center relative bg-gray-50">
+            
             <div className="relative z-10 flex flex-col md:flex-row bg-white bg-opacity-80 rounded-lg shadow-lg max-w-3xl w-full overflow-hidden">
-
-                {/* Left Side: Form */}
                 <div className="md:w-1/2 w-full p-8 flex flex-col space-y-4 border-b md:border-b-0 md:border-r border-gray-200 bg-gradient-to-br from-blue-50 to-purple-100">
                     <form
                         onSubmit={handleSubmit}
                         className="flex flex-col space-y-6 animate-fade-in"
                     >
+                        <h1 className="text-2xl md:text-3xl font-bold text-blue-700 mb-4 text-center tracking-wide drop-shadow">
+                            Enter your Details
+                        </h1>
                         <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-1 tracking-wide">
                                 Age
@@ -157,7 +173,6 @@ function BMI(props) {
                         </button>
                     </form>
                 </div>
-                {/* Right Side: BMI & Calories Result */}
                 <div className="md:w-1/2 w-full flex flex-col justify-center items-center p-8 bg-gradient-to-br from-purple-50 to-blue-100">
                     <div className="w-full max-w-xs mx-auto flex flex-col gap-6">
                         <div className="flex flex-col items-center border rounded-lg p-4 bg-white shadow mb-4 animate-fade-in">
@@ -188,6 +203,7 @@ function BMI(props) {
                 </div>
             </div>
         </div>
+        </>
     );
 
     // Helper to get BMI category and color

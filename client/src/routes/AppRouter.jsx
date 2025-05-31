@@ -7,6 +7,7 @@ import InnerHome from '../pages/InnerHome';
 import Exercise from '../exercise/Exercise';
 import StrengthTraining from '../exercise/StrengthTraining';
 import WeightLoss from '../exercise/WeightLoss';
+import BMI from '../pages/BMI';
 const AppRouter = () => {
     return (
         <Routes>
@@ -18,6 +19,7 @@ const AppRouter = () => {
             <Route path="/exercise" element={<Exercise/>} />
             <Route path="/strengthTraining" element={<StrengthTraining/>}/>
             <Route path="/weightLoss" element={<WeightLoss/>}/>
+            <Route path="/bmi" element={<BMI/>}/>
         </Routes>
     );
 };

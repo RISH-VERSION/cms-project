@@ -57,7 +57,7 @@ function InnerHome() {
             <button className="w-52 bg-indigo-600 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-indigo-700 transition transform hover:scale-105 duration-200 animate-popIn" onClick={() => navigate("/Exercise")}>
               Exercise Plans
             </button>
-            <button className="w-52 bg-green-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-600 transition transform hover:scale-105 duration-200 animate-popIn delay-100">
+            <button className="w-52 bg-green-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-green-600 transition transform hover:scale-105 duration-200 animate-popIn delay-100" onClick={() => navigate("/bmi")}>
               Diet Plans
             </button>
             <button className="w-52 bg-blue-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-blue-600 transition transform hover:scale-105 duration-200 animate-popIn delay-200">
