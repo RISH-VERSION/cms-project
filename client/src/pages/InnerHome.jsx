@@ -1,8 +1,41 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 function InnerHome() {
   const navigate = useNavigate();
+  
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
+
+  const handleLogut = () => {
+    localStorage.removeItem("loggedInUser");
+    setUser(null);
+    navigate("/");
+  };
+
   return (
     <>
+      <nav>
+        <ul className="flex space-x-4 items-center p-4 bg-white shadow rounded-lg">
+          <li>
+            <button
+              className="text-indigo-600 font-semibold hover:underline"
+              onClick={() => navigate("/")}
+            >
+              Home
+            </button>
+          </li>
+          <li className="ml-auto">
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+              onClick={handleLogut}
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
       <div
         className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-green-100 flex flex-col justify-between animate-fadeIn"
         style={{
@@ -13,7 +46,7 @@ function InnerHome() {
         {/* Welcome Section */}
         <div className="flex-grow flex flex-col items-center justify-center p-8 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 animate-slideDown">
-            Welcome to <span className="text-indigo-600">Zenergy</span>
+            Welcome back <span className="text-indigo-600">{user.name}</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-xl mb-8 animate-fadeInDelay">
             Elevate your fitness journey with smart workouts, clean nutrition, and total body-mind balance.

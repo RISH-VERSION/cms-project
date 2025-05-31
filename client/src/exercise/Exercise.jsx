@@ -1,12 +1,27 @@
+import { useNavigate } from "react-router";
 
 function Exercise() {
+  const navigate = useNavigate();
     return (
        <div className="bg-gray-50 min-h-screen">
   <header className="bg-blue-500 text-white py-6 px-4 text-center">
     <h1 className="text-4xl font-bold">Exercise Hub</h1>
     <p className="mt-2 text-lg">Your personalized guide to fitness and wellness</p>
   </header>
-
+  <div className="flex justify-between items-center p-4 bg-white shadow">
+    <button
+      className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition"
+      onClick={() => navigate('/innerHome')}
+    >
+      &#8592; Back
+    </button>
+    <button
+      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+      onClick={() => navigate('/')}
+    >
+      Home
+    </button>
+  </div>
   <section className="p-6">
     <h2 className="text-2xl font-bold mb-4">Explore Categories</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -21,7 +36,7 @@ function Exercise() {
         <p className="text-gray-700 mt-2">
           Build strength and endurance with structured Strength training routines.
         </p>
-        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" onClick={() => navigate('/StrengthTraining')}>
           Learn More
         </button>
       </div>
