@@ -113,6 +113,15 @@ function Signup() {
                             Sign Up
                         </button>
                     </form>
+                    <div className="mt-4 text-center">
+                        <span className="text-gray-600">Already have an account? </span>
+                        <Link
+                            to="/signin"
+                            className="text-blue-600 font-semibold hover:underline"
+                        >
+                            Sign In
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

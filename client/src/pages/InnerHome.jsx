@@ -2,21 +2,16 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 function InnerHome() {
   const navigate = useNavigate();
-
+  
   const [user, setUser] = useState(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/signin");
-    }
-  }, [user, navigate]);
-
   const handleLogut = () => {
     localStorage.removeItem("loggedInUser");
     setUser(null);
+    navigate("/");
   };
 
   return (
@@ -51,7 +46,7 @@ function InnerHome() {
         {/* Welcome Section */}
         <div className="flex-grow flex flex-col items-center justify-center p-8 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 animate-slideDown">
-            Welcome to <span className="text-indigo-600">Zenergy</span>
+            Welcome back <span className="text-indigo-600">{user.name}</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-xl mb-8 animate-fadeInDelay">
             Elevate your fitness journey with smart workouts, clean nutrition, and total body-mind balance.
