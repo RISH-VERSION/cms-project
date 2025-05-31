@@ -1,5 +1,6 @@
-
+import { useNavigate } from "react-router";
 function StrengthTraining(){
+  const navigate = useNavigate(); 
     return(
        <div className="bg-gray-50 min-h-screen">
       <header className="bg-indigo-600 text-white py-8 px-4 text-center">
@@ -11,7 +12,7 @@ function StrengthTraining(){
       {/* Navigation Section */}
       <nav className="flex items-center justify-center gap-6 bg-gray-200 py-4 relative">
         <button
-          onClick={() => window.location.href = "/exercise"}
+          onClick={() => navigate("/exercise")}
           className="absolute left-4 px-4 py-2 bg-white text-indigo-600 rounded shadow hover:bg-indigo-100 transition"
           style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
