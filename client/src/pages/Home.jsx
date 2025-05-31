@@ -4,7 +4,7 @@ function Home(props) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        if (localStorage.getItem('user')) {
+        if (localStorage.getItem('loggedInUser')) {
             navigate('/InnerHome');
         } else {
             navigate('/Signup');

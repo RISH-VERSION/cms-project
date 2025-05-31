@@ -11,13 +11,11 @@ function Signup() {
     });
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSignup = () => {
+    const handleSignup = (e) => {
+        e.preventDefault();
         const { name, email, password, confirmPassword } = formData;
 
         if (!name || !email || !password || !confirmPassword) {
@@ -28,14 +26,20 @@ function Signup() {
             alert("Passwords do not match");
             return;
         }
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        const userData = {
-            name,
-            email,
-            password
-        };
+        const userExists = users.some((user) => user.email === email);
+        if (userExists) {
+            alert("Email already registered");
+            return;
+        }
 
-        localStorage.setItem("user", JSON.stringify(userData));
+        users.push({name, email, password});
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        localStorage.setItem("loggedInUser", JSON.stringify({ name, email }));
+        
         navigate("/Innerhome");
     };
     return (
@@ -52,7 +56,7 @@ function Signup() {
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
                 <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
                     <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={ handleSignup }>
                         <div>
                             <label className="block text-gray-700 mb-1" htmlFor="name">Username</label>
                             <input
@@ -105,10 +109,19 @@ function Signup() {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors" onClick={handleSignup}>
+                            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors">
                             Sign Up
                         </button>
                     </form>
+                    <div className="mt-4 text-center">
+                        <span className="text-gray-600">Already have an account? </span>
+                        <Link
+                            to="/signin"
+                            className="text-blue-600 font-semibold hover:underline"
+                        >
+                            Sign In
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>
