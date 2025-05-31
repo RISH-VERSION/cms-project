@@ -1,9 +1,10 @@
-import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './routes/AppRouter';
+import { BrowserRouter } from 'react-router-dom';  
+import WeightLoss from './exercise/WeightLoss';
 function App() {
   return (
     <BrowserRouter>
-      <AppRouter />
+      <WeightLoss/>
+
     </BrowserRouter>
   );
 }

@@ -5,6 +5,7 @@ import Signin from '../pages/Signin';
 import NotFound from '../pages/NotFound';
 import InnerHome from '../pages/InnerHome';
 import Exercise from '../exercise/Exercise';
+import WeightLoss from '../exercise/WeightLoss';
 const AppRouter = () => {
     return (
         <Routes>
@@ -14,6 +15,7 @@ const AppRouter = () => {
             <Route path="/signin" element={<Signin />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/exercise" element={<Exercise/>}/>
+            <Route path="WeightLoss" element={<WeightLoss/>}/>
         </Routes>
     );
 };
