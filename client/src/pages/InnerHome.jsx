@@ -71,7 +71,7 @@ function InnerHome() {
           © {new Date().getFullYear()} Zenergy. All rights reserved.
         </footer>
       </div>
-      <style>
+      <style> 
         {`
               @keyframes fadeIn {
                 from { opacity: 0 }
